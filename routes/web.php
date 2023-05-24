@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TodoListController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('todo')->name('todo-list.')->group(function () {
+	Route::get('list', [TodoListController::class, 'index'])->name('index');
+	Route::post('store', [TodoListController::class, 'store'])->name('store');
+	Route::put('update/{id}', [TodoListController::class, 'update'])->name('update');
+	Route::delete('{id}/delete', [TodoListController::class, 'update'])->name('delete');
+});

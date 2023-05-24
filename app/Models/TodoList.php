@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\UserScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,9 +10,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TodoList extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = [];
 
-    public function tasks()
+	protected static function boot()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id');
+        parent::boot();
+        static::addGlobalScope(new UserScope);
     }
 }
