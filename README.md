@@ -8,7 +8,7 @@ It's a Simple Todo App. In which I tried to Follow MVCS design Pattern and SOLID
 
 Make sure you have the following software installed on your machine:
 
-`PHP (>= 8.0)`
+`PHP (>= 8.1)`
 
 `Composer`
 
