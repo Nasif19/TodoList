@@ -54,7 +54,7 @@
                 html += `<div class="col-5 border border-info rounded p-2 m-2">
                     <div class="row justify-content-between">
                         <div class="col-12 text-end mb-1"> 
-                            <a style="text-decoration: none; cursor: pointer;" class="text-danger" data-mdb-toggle="tooltip" title="Delete date" onclick="deleteTask(${todo.id})">
+                            <a style="text-decoration: none; cursor: pointer;" class="text-danger" data-mdb-toggle="tooltip" title="Delete Todo" onclick="deleteTask(${todo.id})">
                                 X
                             </a>
                         </div>
@@ -78,7 +78,7 @@
                             </li>
                             <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
                                 <div class="text-end text-muted">
-                                    <a style="text-decoration: none; cursor: pointer;" class="text-info" data-mdb-toggle="tooltip" title="Delete date" onclick="deleteTask(${task.id})">
+                                    <a style="text-decoration: none; cursor: pointer;" class="text-info" data-mdb-toggle="tooltip" title="Delete Task" onclick="deleteTask(${task.id})">
                                         X
                                     </a>
                                 </div>

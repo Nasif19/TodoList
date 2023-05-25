@@ -22,11 +22,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::prefix('todo')->name('todo-list.')->group(function () {
+Route::middleware('auth')->prefix('todo')->name('todo-list.')->group(function () {
 	Route::get('list', [TodoListController::class, 'index'])->name('index');
 	Route::post('store', [TodoListController::class, 'store'])->name('store');
 	Route::post('update', [TodoListController::class, 'update'])->name('update');
 	Route::post('delete', [TodoListController::class, 'delete'])->name('delete');
 	Route::post('change-status', [TodoListController::class, 'changeStatus'])->name('changeStatus');
 });
+
