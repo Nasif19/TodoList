@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('todo')->name('todo-list.')->group(function () {
 	Route::get('list', [TodoListController::class, 'index'])->name('index');
 	Route::post('store', [TodoListController::class, 'store'])->name('store');
-	Route::put('update/{id}', [TodoListController::class, 'update'])->name('update');
-	Route::delete('{id}/delete', [TodoListController::class, 'update'])->name('delete');
+	Route::post('update', [TodoListController::class, 'update'])->name('update');
+	Route::post('delete', [TodoListController::class, 'delete'])->name('delete');
+	Route::post('change-status', [TodoListController::class, 'changeStatus'])->name('changeStatus');
 });

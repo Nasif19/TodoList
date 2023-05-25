@@ -10,11 +10,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TodoList extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
 	protected static function boot()
     {
         parent::boot();
         static::addGlobalScope(new UserScope);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id');
     }
 }

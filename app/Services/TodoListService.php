@@ -13,7 +13,7 @@ class TodoListService implements TodoListContract {
     }
 
     public function index() {
-        return $this->todoList::all();
+        return $this->todoList::with('tasks')->whereNull('parent_id')->orderBy('id', 'desc')->get();
     }
 
     public function store($requestParams) {
@@ -22,10 +22,10 @@ class TodoListService implements TodoListContract {
 			$todo = new $this->todoList();
 	
 			$todo->name = $requestParams->name;
-			$todo->date = $requestParams->date?date('Y-m-d', strtotime($requestParams->date)):null;
+			$todo->parent_id = $requestParams->parent_id;
 			$todo->user_id = auth()->id();
 			$todo->save();
-			
+
 			DB::commit();
 
 			return response('Save Successfully.!', 200);
@@ -53,8 +53,17 @@ class TodoListService implements TodoListContract {
 		return $this->todoList::find($id);
     }
 
+    public function changeStatus($id)
+    {
+        $todo = $this->todoList::find($id);
+        $todo->status = $todo->status==1?0:1;
+        return $todo->update();
+    }
+
     public function delete($id) {
-		$this->todoList::find($id)->delete();
+        $todo = $this->todoList::find($id);
+        if (!$todo->parent_id) $this->todoList::where('parent_id', $todo->id)->delete();
+		return $todo->delete();
     }
 
 }

@@ -6,5 +6,6 @@ interface TodoListContract {
     public function store(object $requestParams);
     public function update(object $requestParams);
     public function edit(int $id);
+    public function changeStatus(int $id);
     public function delete(int $id);
 }

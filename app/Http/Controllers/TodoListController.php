@@ -17,6 +17,7 @@ class TodoListController extends Controller
 	{
 		return $this->todoListService->index();
 	}
+
 	public function store(Request $request)
 	{
 		$this->validate($request, [
@@ -37,12 +38,18 @@ class TodoListController extends Controller
 
 	public function edit($id)
 	{
-		return response()->json($this->edit($id));
+		return response()->json($this->todoListService->edit($id));
 	}
 
-	public function delete($id)
+	public function changeStatus(Request $request)
 	{
-		$this->delete($id);
+		$this->todoListService->changeStatus($request->id);
+		return response('Delete Successful..!', 200);
+	}
+    
+	public function delete(Request $request)
+	{
+		$this->todoListService->delete($request->id);
 		return response('Delete Successful..!', 200);
 	}
 }

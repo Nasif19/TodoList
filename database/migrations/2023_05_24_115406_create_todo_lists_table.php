@@ -8,13 +8,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+    */
     public function up(): void
     {
         Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->string('name', 191);
-            $table->date('date')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedBigInteger('user_id');
             $table->softDeletes();
