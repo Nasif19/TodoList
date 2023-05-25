@@ -34,8 +34,6 @@ Install dependencies
 ```bash
 composer install
 
-composer require laravel/ui
-
 nmp install
   
 npm run dev
