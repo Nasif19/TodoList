@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\TodoListService;
 use Illuminate\Http\Request;
 
-class TodoListController extends Controller
+class TodoController extends Controller
 {
 	protected $todoListService;
     public function __construct(TodoListService $todoListService)

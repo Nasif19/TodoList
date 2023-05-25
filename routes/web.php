@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TodoListController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,10 +23,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->prefix('todo')->name('todo-list.')->group(function () {
-	Route::get('list', [TodoListController::class, 'index'])->name('index');
-	Route::post('store', [TodoListController::class, 'store'])->name('store');
-	Route::post('update', [TodoListController::class, 'update'])->name('update');
-	Route::post('delete', [TodoListController::class, 'delete'])->name('delete');
-	Route::post('change-status', [TodoListController::class, 'changeStatus'])->name('changeStatus');
+	Route::get('list', [TodoController::class, 'index'])->name('index');
+	Route::post('store', [TodoController::class, 'store'])->name('store');
+	Route::post('update', [TodoController::class, 'update'])->name('update');
+	Route::post('delete', [TodoController::class, 'delete'])->name('delete');
+	Route::post('change-status', [TodoController::class, 'changeStatus'])->name('changeStatus');
 });
 
