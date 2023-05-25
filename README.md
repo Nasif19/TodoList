@@ -20,23 +20,25 @@ To get started with the project, follow these steps:
 Clone the project
 
 ```bash
-  git clone https://github.com/Nasif19/TodoList.git
+git clone https://github.com/Nasif19/TodoList.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd TodoList
+cd TodoList
 ```
 
 Install dependencies
 
 ```bash
-  composer install
+composer install
 
-  nmp install
+composer require laravel/ui
+
+nmp install
   
-  npm run dev
+npm run dev
 ```
 
 
@@ -45,35 +47,35 @@ Install dependencies
 Copy the .env.example file to create a new .env file:
 
 ```bash
-  cp .env.example .env
+cp .env.example .env
 ```
 Generate the application key:
 
 ```bash
-  php artisan key:generate
+php artisan key:generate
 ```
 
 Open the .env file and configure the database connection settings according to your MySQL setup:
 
 ```bash
-  DB_CONNECTION=mysql
-  DB_HOST=127.0.0.1
-  DB_PORT=3306
-  DB_DATABASE=your_database
-  DB_USERNAME=your_username
-  DB_PASSWORD=your_password
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 ```
 ## Database Migration
 Run the following command to create the necessary database tables:
 ```bash
-  php artisan migrate
+php artisan migrate
 ```
 ## Serve the Application
 
 You can use Laravel's built-in server to run the application locally. Run the following command:
 
 ```bash
-  php artisan serve
+php artisan serve
 ```
 The application will be available at http://localhost:8000.
 ## How To Use This App
