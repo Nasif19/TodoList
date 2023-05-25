@@ -78,3 +78,11 @@ You can use Laravel's built-in server to run the application locally. Run the fo
   php artisan serve
 ```
 The application will be available at http://localhost:8000.
+## How To Use This App
+
+From Welcome Page, Go to Register Form and create an account.
+
+Than You will be eligible to Manage your todos and the tasks.
+
+you can create multiple todo and tasks.
+For edit just click on the text and change as you wish.
