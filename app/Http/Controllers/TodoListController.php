@@ -25,6 +25,7 @@ class TodoListController extends Controller
 		]);
 
 		$this->todoListService->store($request);
+		return response('Saved Successful..!', 200);
 	}
 
 	public function Update(Request $request)
@@ -34,6 +35,7 @@ class TodoListController extends Controller
 		]);
 
 		$this->todoListService->Update($request);
+		return response('Updated Successful..!', 200);
 	}
 
 	public function edit($id)
