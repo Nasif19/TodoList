@@ -103,7 +103,14 @@
 					getTodoLists(()=> {
                         if (name) $('#task'+parent_id).focus();
                     });
-				}
+				},
+				// callbackError: (errors) => {
+				// 	console.log(errors.responseJSON.errors);
+					// $.each(errors.responseJSON.errors, function (field_name, error) {
+					// 	$(document).find("[name=" + field_name + "]").after(`<span class="text-strong text-danger validation"> <strong>${ error[0].replace(' id', '') }</strong> </span>`);
+					// });
+				// 	alert(`<span class="text-strong text-danger validation"> <strong>${ errors.responseJSON.errors[0] }</strong>`);
+				// }
 			})
 		}
 

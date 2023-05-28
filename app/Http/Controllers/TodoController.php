@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TodoRequest;
 use App\Services\TodoListService;
 use Illuminate\Http\Request;
 
@@ -18,22 +19,14 @@ class TodoController extends Controller
 		return $this->todoListService->index();
 	}
 
-	public function store(Request $request)
+	public function store(TodoRequest $request)
 	{
-		$this->validate($request, [
-			'name'=> 'required|string'
-		]);
-
 		$this->todoListService->store($request);
 		return response('Saved Successful..!', 200);
 	}
 
-	public function Update(Request $request)
+	public function Update(TodoRequest $request)
 	{
-		$this->validate($request, [
-			'name'=> 'required|string'
-		]);
-
 		$this->todoListService->Update($request);
 		return response('Updated Successful..!', 200);
 	}
